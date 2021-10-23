@@ -10,6 +10,7 @@ app.use(express.json());
 
 app.post('/sign-up', signUp);
 
-app.post('/login', logIn), 
+app.post('/login', logIn);
 
-app.listen(4000);
+export default app;
+
