@@ -1,16 +1,20 @@
 import connection from "../database/database.js";
 
 
+
 export async function postEntry (req, res) {
     const {
         description,
         value,
         date
     } = req.body;
-    const token = req.headers.authorization.replace('Bearer ', '');
+
+    const token = req.headers.authorization?.replace('Bearer ', '');
+
+    if(!token) return res.sendStatus(401);
 
     try {
-        const user = await connection.query(`SELECT * FROM sessions WHERE token = $1;`, [token])
+        const user = await connection.query(`SELECT * FROM sessions WHERE token = $1;`, [token]);
         
         if (user.rowCount === 0){
             return res.sendStatus(401);
@@ -23,5 +27,26 @@ export async function postEntry (req, res) {
     } catch (error) {
         console.log(error);
         return sendStatus(500);
+    }
+}
+
+export async function getEtries (req, res) {
+    const token = req.headers.authorization?.replace('Bearer ', '');
+
+    if(!token) return res.sendStatus(401);
+
+    try {
+        const user = await connection.query(`SELECT * FROM sessions WHERE token = $1;`, [token]);
+        
+        if (user.rowCount === 0){
+            return res.sendStatus(401);
+        }
+
+        const userId = JSON.stringify(user.rows[0].userId);
+        const entries = await connection.query(`SELECT * FROM entries WHERE "userId" = $1;`, [userId]);
+        res.send(entries.rows).status(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
     }
 }
