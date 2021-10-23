@@ -15,10 +15,16 @@ async function logIn (req, res) {
                 const token = uuid();
                 
                 await connection.query(`INSERT INTO sessions ("userId", token) VALUES ($1, $2)`, [user.id, token]);
+
+                const responseBody = {
+                    name: user.name,
+                    token
+                }
+                
         
-                res.send(token).status(200);
+                return res.send(responseBody).status(200);
             } else {
-                res.sendStatus(401);
+                return res.sendStatus(401);
             }
         } catch (error) {
             console.log(error);
