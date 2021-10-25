@@ -3,24 +3,24 @@ import bcrypt from 'bcrypt';
 import { v4 as uuid } from "uuid";
 import Joi from 'joi';
 
-function inputlValidation(input){
-    const inputSchema = Joi.object({
+function bodyValidation(body){
+    const bodySchema = Joi.object({
         email: Joi.string().email().required(),
         password: Joi.string().required()
     })
 
-    if (inputSchema.validate(input).error !== undefined){
+    if (bodySchema.validate(body).error !== undefined){
         return false;
     }
     return true;
 }
 
 async function logIn (req, res) {
-        const { email, password } = req.body;
-
-        if (!inputlValidation({email, password})) {
+        if (!bodyValidation(req.body)) {
             return res.sendStatus(400);
         }
+
+        const { email, password } = req.body;
         
         try {
             const result = await connection.query(`SELECT * FROM users WHERE email = $1`,[email]);
