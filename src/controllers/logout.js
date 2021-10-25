@@ -1,6 +1,7 @@
 import connection from "../database/database.js";
 
 export async function logOut (req, res) {
+    console.log(req.headers)
     const token = req.headers.authorization?.replace('Bearer ', '');
 
     if(!token) return res.sendStatus(401);
