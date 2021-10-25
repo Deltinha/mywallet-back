@@ -1,8 +1,26 @@
 import connection from "../database/database.js";
 import dayjs from "dayjs";
 import '../../node_modules/dayjs/locale/pt-br.js';
+import Joi from 'joi';
+
+function bodyValidation(body){
+    const bodySchema = Joi.object({
+        description: Joi.string().required(),
+        value: Joi.number().required(),
+        date: Joi.date().required()
+    })
+
+    if (bodySchema.validate(body).error !== undefined){
+        return false;
+    }
+    return true;
+}
 
 export async function postEntry (req, res) {
+    if (!bodyValidation(req.body)) {
+        return res.sendStatus(400);
+    }
+
     dayjs.locale('pt-br');
     const {
         description,
