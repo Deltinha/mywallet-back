@@ -7,6 +7,7 @@ export async function logOut (req, res) {
 
     try {
         await connection.query(`DELETE FROM sessions WHERE token = $1;`, [token]);
+        res.sendStatus(200);
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
