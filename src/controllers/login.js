@@ -18,7 +18,6 @@ async function logIn (req, res) {
 
                 const responseBody = {
                     name: user.name,
-                    userId: user.id,
                     token
                 }
                 

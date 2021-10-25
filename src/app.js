@@ -3,6 +3,7 @@ import cors from 'cors';
 import { signUp } from './controllers/sign-up.js';
 import { logIn } from './controllers/login.js';
 import { getEtries, postEntry } from './controllers/entries.js';
+import { logOut } from './controllers/logout.js';
 
 const app = express();
 
@@ -15,6 +16,8 @@ app.post('/login', logIn);
 
 app.post('/entries', postEntry);
 app.get('/entries', getEtries);
+
+app.post('/logout', logOut);
 
 export default app;
 

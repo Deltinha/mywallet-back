@@ -2,7 +2,6 @@ import connection from "../database/database.js";
 import dayjs from "dayjs";
 import '../../node_modules/dayjs/locale/pt-br.js';
 
-
 export async function postEntry (req, res) {
     dayjs.locale('pt-br');
     const {
