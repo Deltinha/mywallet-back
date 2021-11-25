@@ -5,3 +5,5 @@
 
 # misc
 .wakatime-project
+.env
+.env.*

@@ -1,3 +1,4 @@
+import './setup.js';
 import express from 'express';
 import cors from 'cors';
 import { signUp } from './controllers/sign-up.js';
@@ -20,4 +21,3 @@ app.get('/entries', getEtries);
 app.post('/logout', logOut);
 
 export default app;
-
