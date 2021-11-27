@@ -12,6 +12,7 @@ This is the backend repo for MyWallet. A financial management app.
 
 - NodeJS
 - ExpressJS
+- PostgreSQL
 - nodemon
 - pg
 - dotenv
