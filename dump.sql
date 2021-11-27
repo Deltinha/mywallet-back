@@ -146,35 +146,8 @@ ALTER TABLE ONLY public.sessions ALTER COLUMN id SET DEFAULT nextval('public.ses
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
-
---
--- Data for Name: entries; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.entries (id, "userId", description, date, value) FROM stdin;
-136	35	Fortuna dos Joestar	2020-12-31	1.2e+07
-138	35	Ração Premium	2021-01-01	-1360
-\.
-
-
---
--- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.sessions (id, "userId", token) FROM stdin;
-56	35	a379382d-2279-44be-b2bc-a281d513e12d
-\.
-
-
---
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.users (id, name, email, password) FROM stdin;
-35	Dio	dio@brando.com	$2b$10$QcEW66D9HBnSy2DAbG5wKeGImcI0Vg65f2tamdOwiWxklGNVKE1ae
-\.
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass)
 
 
 --
