@@ -1,4 +1,4 @@
-# Gratibox
+# MyWallet
 
 ## About
 
