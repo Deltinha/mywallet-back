@@ -36,7 +36,13 @@ git clone https://github.com/Deltinha/mywallet-back.git
 npm install
 ```
 
-3. Restore the database using the file `./dump.sql`
+3. Insire the repository folder, create an target database and restore the dump
+
+```sh
+sudo -u postgres createdb -T template0 db_name
+
+sudo -u postgres psql db_name < 'dump.sql'
+```
 
 4. Create a new file called `.env` in the root folder using `.env-example` as template. Feed the newly created file with the info of your database.
 
