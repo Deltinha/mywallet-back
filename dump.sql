@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 13.4 (Ubuntu 13.4-0ubuntu0.21.04.1)
--- Dumped by pg_dump version 13.4 (Ubuntu 13.4-0ubuntu0.21.04.1)
+-- Dumped from database version 13.5 (Ubuntu 13.5-0ubuntu0.21.04.1)
+-- Dumped by pg_dump version 13.5 (Ubuntu 13.5-0ubuntu0.21.04.1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -147,56 +147,6 @@ ALTER TABLE ONLY public.sessions ALTER COLUMN id SET DEFAULT nextval('public.ses
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
-
-
---
--- Data for Name: entries; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.entries (id, "userId", description, date, value) FROM stdin;
-136	35	Fortuna dos Joestar	2020-12-31	1.2e+07
-138	35	Ração Premium	2021-01-01	-1360
-\.
-
-
---
--- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.sessions (id, "userId", token) FROM stdin;
-56	35	a379382d-2279-44be-b2bc-a281d513e12d
-\.
-
-
---
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.users (id, name, email, password) FROM stdin;
-35	Dio	dio@brando.com	$2b$10$QcEW66D9HBnSy2DAbG5wKeGImcI0Vg65f2tamdOwiWxklGNVKE1ae
-\.
-
-
---
--- Name: entries_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.entries_id_seq', 138, true);
-
-
---
--- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.sessions_id_seq', 56, true);
-
-
---
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.users_id_seq', 35, true);
-
 
 --
 -- PostgreSQL database dump complete

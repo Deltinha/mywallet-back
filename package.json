@@ -6,12 +6,37 @@
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dayjs": "^1.10.7",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jest": "^27.3.1",
     "joi": "^17.4.2",
+    "nodemon": "^2.0.15",
     "pg": "^8.7.1",
     "supertest": "^6.1.6",
     "uuid": "^8.3.2"
   },
-  "type": "module"
+  "type": "module",
+  "name": "back-mywallet",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "NODE_ENV=dev nodemon src/server.js",
+    "test": "NODE_ENV=test npx jest --runInBand",
+    "test:watch": "NODE_ENV=test npx jest --runInBand --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deltinha/mywallet-back.git"
+  },
+  "author": "Moisés Brandão",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Deltinha/mywallet-back/issues"
+  },
+  "homepage": "https://github.com/Deltinha/mywallet-back#readme",
+  "description": ""
 }
